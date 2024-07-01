@@ -23,8 +23,12 @@ GPT_MODEL = "gpt-4o"
 
 複数の Azure OpenAI Service のデプロイモデルを利用できるシンプルなチャット用Web画面です。ローカルで HTML と Javascript で稼働します (Web サーバー不要)。
 
-以下の Azure OpenAI Service のエンドポイント(URL) と API キー、各 OpenAI モデルのデプロイ名を設定してください。
+<img src="ChatWebUI.png" />
 
+
+## 利用方法
+
+以下の Azure OpenAI Service のエンドポイント(URL) と API キー、各 OpenAI モデルのデプロイ名を設定してください。
 
 script.js
 ```
