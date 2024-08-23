@@ -1,0 +1,56 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Call Center Transcription & Analytics Demo";
+}
+
+<div class="text-left">
+    <form method="post" enctype="multipart/form-data">
+        <h1>Call Center Transcription & Analytics Demo</h1>
+        <div>
+            <p>
+            This app is using <a href="https://learn.microsoft.com/ja-jp/azure/ai-services/speech-service/overview">Azure AI Speech</a> and <a href="https://learn.microsoft.com/ja-jp/azure/ai-services/language-service/overview">Azure AI Language</a> features.<br/>
+            Upload recording file (wav) and get transcription and analysis result.<br/>
+            Please use <a href="/data/CallCenter.wav">sample file</a> if you don't have any.
+            </p>
+        </div>
+        <div>
+@*             <p><label>Message: </label><b>@Model.ProcessMessage</b></p> *@
+        </div>
+        <div>
+            <label>Recording File(wav)</label>
+            <input type="file" asp-for="AudioFile" accept=".wav" />
+        </div>
+        <div>
+            <button type="submit" asp-page-handler="Recognize">Upload</button>
+        </div>
+        <div>
+            <label>TranscriptionId: </label>@Model.TranscriptionId <br />
+            <label>Status: </label>@Model.TranscriptionStatus
+        </div>
+        <div>
+            <button type="submit" asp-page-handler="CheckStatus" disabled="@(string.IsNullOrEmpty(Model.TranscriptionId))">Update</button>
+        </div>
+        <div>
+            <button type="submit" asp-page-handler="ShowTranscription" disabled="@(Model.TranscriptionStatus != "Succeeded")">Show Transcription</button>
+        </div>
+        <div>
+            <label>Transcription Result:</label><br />
+            <textarea rows="10" cols="180" style="resize: both;">@Model.TranscriptionResult</textarea>
+        </div>
+        <div>
+            <button type="submit" asp-page-handler="Summarize" disabled="@(string.IsNullOrEmpty(Model.TranscriptionResult))">Summarize</button>
+        </div>
+        <div>
+            <label>Summarized Result:</label><br />
+            <textarea rows="5" cols="180" style="resize: both;">@Model.SummarizedResult</textarea>
+        </div>
+        <div>
+            <button type="submit" asp-page-handler="Analyze" disabled="@(string.IsNullOrEmpty(Model.TranscriptionResult))">Analyze</button>
+        </div>
+        <div>
+            <label>Analyze Result:</label><br />
+            <textarea rows="10" cols="180" style="resize: both;">@Model.AnalyzedResult</textarea>
+        </div>
+    </form>
+</div>
