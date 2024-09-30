@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.header {
+    text-align: center;
+}
+.header h1 {
+    font-size: 28px;
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0078D7;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.status-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.status {
+    text-align: center;
+    margin-right: 20px;
+}
+.status p {
+    font-size: 18px;
+    color: gray;
+    margin: 5px 0;
+}
+.content {
+    display: flex;
+    justify-content: center;
+}
+.content img {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+}
+.section {
+    margin: 20px 0;
+}
+.section h2 {
+    font-size: 24px;
+    color: #333;
+}
+.section p, .section ul {
+    font-size: 16px;
+    color: #555;
+}
+.section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
